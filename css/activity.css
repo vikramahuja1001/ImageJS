@@ -1,0 +1,99 @@
+*{
+	margin:0;
+	padding:0;
+}
+body{
+width:100%;
+height:100%;
+overflow:hidden;
+}
+#main-toolbar #activity-button {
+	background-image: url(../activity/activity-icon.svg);
+}
+
+#zoom-out {
+	background-image: url(../icons/zoom-out.svg);
+}
+
+#zoom-in {
+	background-image: url(../icons/zoom-in.svg);
+}
+
+#zoom-best {
+	background-image: url(../icons/zoom-best-fit.svg);
+}
+
+#zoom-original {
+	background-image: url(../icons/zoom-original.svg);
+}
+
+#rotate-anticlockwise {
+	background-image: url(../icons/rotate_anticlockwise.svg);
+}
+
+#rotate-clockwise {
+	background-image: url(../icons/rotate_clockwise.svg);
+}
+
+#previous-image {
+	background-image: url(../icons/previous-image.svg);
+}
+
+#next-image {
+	background-image: url(../icons/next-image.svg);
+}
+
+#add-image {
+	background-image: url(../icons/add.svg);
+}
+
+#fullscreen {
+	background-image: url(../icons/view-fullscreen.svg);
+}
+
+#exit-fullscreen {
+	background-color:white;
+	background-image: url(../icons/view-return.svg);
+        border: 0;
+	border-radius: 0px;
+        margin: 1px;
+        width: 55px;
+        height: 55px;
+        top: 0;
+        left: 95%;
+        position: absolute;
+}
+
+#large-screen{
+left: 29%;
+	font-size:30px;
+        position: absolute;
+}
+
+#open-image {
+       width: 15%;
+       border-radius: 30px;
+}
+
+#button-image {
+	margin-bottom: -4%;
+}
+
+#canvas {
+	background-color: white;
+        color: black;
+       text-align: center;
+}
+
+#init-image {
+	margin-top: 10%;
+}
+
+#init-image img {
+width: 15%;
+}
+
+#search_image {
+	  display: none;
+}
+
