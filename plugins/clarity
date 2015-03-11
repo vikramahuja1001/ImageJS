@@ -1,0 +1,5 @@
+this.vibrance(20);this.curves("rgb",[5,0],[130,150],[190,220],[250,255]);this.sharpen(15);this.vignette("45%",20);if(F){this.greyscale();this.contrast(4)}
+
+
+vibrance = 20
+Curves

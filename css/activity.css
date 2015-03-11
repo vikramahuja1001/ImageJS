@@ -51,6 +51,10 @@ overflow:hidden;
 	background-image: url(../icons/view-fullscreen.svg);
 }
 
+#plugin {
+	background-image: url(../icons/plugin-button.svg);
+}
+
 #exit-fullscreen {
 	background-color:white;
 	background-image: url(../icons/view-return.svg);
@@ -96,4 +100,6 @@ width: 15%;
 #search_image {
 	  display: none;
 }
-
+#search_plugin {
+	  display: none;
+}

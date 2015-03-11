@@ -4,6 +4,8 @@ var imagearray = new Array();
 var imagex = new Array();
 var imagey = new Array();
 var index =0;
+var name;
+var content;
 var image,canvas,choose,toolbar,ctx;
 $(document).ready(function() {
 
@@ -16,6 +18,7 @@ $(document).ready(function() {
 		canvas.setAttribute('height', window.innerHeight - 55);
 		$('#large-screen').hide();
 		$('#imageCanvas').hide();
+		
 		$("#exit-fullscreen").hide();
 		$("#zoom-in").click(function() {
 			console.log("Zoom-In");
@@ -169,17 +172,134 @@ $(document).ready(function() {
 		});
 
 
-		$("#caman").unbind('click').bind('click' ,function(e) {
-					console.log('VIkram ahuja');
-					console.log(imagearray[0])
-					path = imagearray[0]
-					Caman("#imageCanvas2", path, function () {
-						  // manipulate image here
-						  this.brightness(5).render();
-						  });
 
+		$("#plugin").unbind('click').bind('click' ,function(e) {
+				$('#search_plugin').unbind('click').trigger("click");
+			
+				console.log("in here");
+				e.preventDefault();
+				var fileInput = document.getElementById('search_plugin');
+				console.log(fileInput);
+
+				fileInput.addEventListener('change', function(e) {
+					console.log("in here");
+					e.preventDefault();
+					var file = fileInput.files[0];
+					console.log(file["name"]);
+					var filename = "plugins/" + file["name"];
+					console.log(filename);
+					$.getJSON(filename, function(json) {
+						content = json;
+    					//console.log(content["VALUES"]["svg"]); 
+    					name = content["VALUES"]["name"]; 
+    					names = "#" + name; 
+    					button_icon = content["VALUES"]["svg"];
+    					console.log(name);
+    					console.log(button_icon); 
+
+    					var button = document.createElement("button");  
+    					var att = button.setAttribute("class","toolbarbutton");       // Create a "class" attribute
+					//	att.value = "toolbutton";
+    				//	button.setAttributeNode(att);
+
+    					var id = button.setAttribute("id","plugin_work");       // Create a "class" attribute				
+
+						var title = button.setAttribute("title",name);       // Create a "class" attribute
+						var image = button.setAttribute("background-image", button_icon);
+					//	var background-image = button.setAttribute("background",button_icon);
+
+						document.getElementById("main-toolbar").appendChild(button);
 
 				});
+
+				});
+		});
+
+		$(document).unbind('click').on('click', '#plugin_work', function() {
+    console.log("done");
+    console.log(content["VALUES"]);
+    var contrast = content["VALUES"]["contrast"];
+    var noise = content["VALUES"]["noise"]
+    var sepia = content["VALUES"]["sepia"];
+    var gamma = content["VALUES"]["gamma"];
+    var brightness = content["VALUES"]["brightness"];
+    path = imagearray[0]
+
+
+  //  setInterval(function(){ 
+    //code goes here that will be run every 5 seconds.    
+//}, 1000);
+
+  setTimeout(function(){ 
+				Caman("#imageCanvas2", path, function () {
+						  // manipulate image here
+					  document.getElementById("change").innerHTML = "Changing Contrast";
+				   			console.log("1");
+	    			this.contrast(5);
+	    			this.render();
+				});
+			},1500);
+
+setTimeout(function(){
+	Caman("#imageCanvas2", path, function () {
+						  // manipulate image here
+					  console.log("2");
+				   			document.getElementById("change").innerHTML = "Changing Noise";
+	    			this.noise(10);
+	    			this.render();
+	    			});
+				}, 3000);
+
+setTimeout(function(){
+	Caman("#imageCanvas2", path, function () {
+						  // manipulate image here
+					  console.log("3");
+				   			document.getElementById("change").innerHTML = "Changing Sepia";
+	    			this.sepia(100);
+	    			this.render();
+	    			});
+				}, 4500);
+
+setTimeout(function(){
+	Caman("#imageCanvas2", path, function () {
+						  // manipulate image here
+					  console.log("4");
+				   			document.getElementById("change").innerHTML = "Changing Gamma";
+	    			this.gamma(0.87);
+	    			this.render();
+	    			});
+				}, 6000);
+setTimeout(function(){
+document.getElementById("change").innerHTML = "Vintage Effect CREATED";
+},8000);
+
+
+});
+
+	//	$("#plugin_work").unbind('click').bind('click' ,function(e) {
+//			console.log("done");
+//		});
+
+
+		$("#caman").unbind('click').bind('click' ,function(e) {
+				$.getJSON("plugins/vintage.json", function(json) {
+    				console.log(json); // this will show the info it in firebug console
+				});
+				console.log('Vikram ahuja');
+				console.log(imagearray[0])
+				path = imagearray[0]
+				Caman("#imageCanvas2", path, function () {
+						  // manipulate image here
+					  this.contrast(5);
+					  this.noise(3);
+					  this.sepia(100);
+					  this.gamma(0.87);
+						//  this.brightness(5);
+    				this.render();
+				});
+		});
+
+		
 
 
 		$('#openss-button').click(function() {
@@ -195,12 +315,10 @@ $(document).ready(function() {
 					$('#init-image').hide();
 					rotateImage(0);
 					});
-				});
-
-
-
 
 });
+
+	});
 
 
 
