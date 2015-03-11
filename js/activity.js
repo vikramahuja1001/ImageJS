@@ -169,6 +169,19 @@ $(document).ready(function() {
 		});
 
 
+		$("#caman").unbind('click').bind('click' ,function(e) {
+					console.log('VIkram ahuja');
+					console.log(imagearray[0])
+					path = imagearray[0]
+					Caman("#imageCanvas2", path, function () {
+						  // manipulate image here
+						  this.brightness(5).render();
+						  });
+
+
+				});
+
+
 		$('#openss-button').click(function() {
 				var fileInput = document.getElementById('search_image');
 				var imageType = /image.*/;
