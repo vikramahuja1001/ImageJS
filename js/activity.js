@@ -235,7 +235,7 @@ $(document).ready(function() {
 						  // manipulate image here
 					  document.getElementById("change").innerHTML = "Changing Contrast";
 				   			console.log("1");
-	    			this.contrast(5);
+	    			this.contrast(contrast);
 	    			this.render();
 				});
 			},1500);
@@ -245,7 +245,7 @@ setTimeout(function(){
 						  // manipulate image here
 					  console.log("2");
 				   			document.getElementById("change").innerHTML = "Changing Noise";
-	    			this.noise(10);
+	    			this.noise(noise);
 	    			this.render();
 	    			});
 				}, 3000);
@@ -255,7 +255,7 @@ setTimeout(function(){
 						  // manipulate image here
 					  console.log("3");
 				   			document.getElementById("change").innerHTML = "Changing Sepia";
-	    			this.sepia(100);
+	    			this.sepia(sepia);
 	    			this.render();
 	    			});
 				}, 4500);
@@ -265,13 +265,25 @@ setTimeout(function(){
 						  // manipulate image here
 					  console.log("4");
 				   			document.getElementById("change").innerHTML = "Changing Gamma";
-	    			this.gamma(0.87);
+	    			this.gamma(gamma);
 	    			this.render();
 	    			});
 				}, 6000);
+
+
+
+setTimeout(function(){
+	Caman("#imageCanvas2", path, function () {
+						  // manipulate image here
+					  console.log("5");
+				   			document.getElementById("change").innerHTML = "Changing brightness";
+	    			this.gamma(brightness);
+	    			this.render();
+	    			});
+				}, 8000);
 setTimeout(function(){
 document.getElementById("change").innerHTML = "Vintage Effect CREATED";
-},8000);
+},10000);
 
 
 });
